@@ -3,6 +3,7 @@ package com.example.rainbowlist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Collections
@@ -48,9 +49,14 @@ class MyAdapter(val list: MutableList<Cor>) : RecyclerView.Adapter<MyAdapter.MyH
 
     inner class MyHolder(item: View): RecyclerView.ViewHolder(item){
         var tvNome: TextView?
+        var color_circle: ImageView?
 
         init {
             this.tvNome = item.findViewById(R.id.tvNome)
+            this.color_circle = item.findViewById(R.id.color_circle)
+            itemView.setOnClickListener{
+                this@MyAdapter.onItemClick?.onItemClick(this.adapterPosition)
+            }
 
             itemView.setOnClickListener{
                 this@MyAdapter.onItemClick?.onItemClick(this.adapterPosition)
