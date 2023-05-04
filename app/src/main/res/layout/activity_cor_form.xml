@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Rainbow List"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/purple"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -27,7 +27,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="40dp"
         android:layout_weight="1"
         android:gravity="center">
 
@@ -48,7 +48,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:padding="40dp"
+        android:padding="10dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -74,7 +74,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:padding="40dp"
+        android:padding="30dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -100,7 +100,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:padding="40dp"
+        android:padding="10dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -126,36 +126,57 @@
 
     </LinearLayout>
 
-
     <LinearLayout
+        android:id="@+id/llColor"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btnEnviar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue"
-            android:text="Enviar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etRGB"
-            app:layout_constraintVertical_bias="0.496" />
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <Button
-            android:id="@+id/btnCancelar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/red"
-            android:text="Cancelar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etRGB"
-            app:layout_constraintVertical_bias="0.496" />
+            <Button
+                android:id="@+id/btnEnviar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purple"
+                android:text="Enviar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etRGB"
+                app:layout_constraintVertical_bias="0.496" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:text="Cancelar"
+                android:layout_margin="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etRGB"
+                app:layout_constraintVertical_bias="0.496" />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvColor"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Sua Cor"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:gravity="center"
+            />
+
+        </LinearLayout>
+
 </LinearLayout>

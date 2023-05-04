@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Rainbowlist"
         tools:targetApi="31">
         <activity
-            android:name=".ColorFormActivity"
+            android:name=".CorForm"
             android:exported="true">
 
             <intent-filter>

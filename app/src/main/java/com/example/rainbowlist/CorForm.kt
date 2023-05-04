@@ -4,10 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
 
 
 class CorForm : AppCompatActivity() {
@@ -19,6 +16,8 @@ class CorForm : AppCompatActivity() {
     private lateinit var tvGreen: TextView
     private lateinit var tvBlue: TextView
     private lateinit var etCor: EditText
+    private lateinit var llColor: LinearLayout
+    private lateinit var tvColor: TextView
     private lateinit var btnEnviar: Button
     private lateinit var btnCancelar: Button
 
@@ -33,8 +32,14 @@ class CorForm : AppCompatActivity() {
         this.tvGreen = findViewById(R.id.tvGreen)
         this.tvBlue = findViewById(R.id.tvBlue)
         this.etCor = findViewById(R.id.etCor)
+        this.llColor = findViewById(R.id.llColor)
+        this.tvColor = findViewById(R.id.tvColor)
         this.btnEnviar = findViewById(R.id.btnEnviar)
         this.btnCancelar = findViewById(R.id.btnCancelar)
+
+        this.llColor.setBackgroundColor(this.createColor())
+        this.tvColor.setTextColor(this.invertColor())
+        this.tvColor.text = this.hexColor(this.createColor())
 
         this.sbRed.setOnSeekBarChangeListener(OnChangeColor())
         this.sbGreen.setOnSeekBarChangeListener(OnChangeColor())
@@ -67,11 +72,15 @@ class CorForm : AppCompatActivity() {
         val green = this@CorForm.sbGreen.progress
         val blue = this@CorForm.sbBlue.progress
         val name = this@CorForm.etCor.text.toString()
+
         val color = Cor(red, green, blue, name)
+
+
         val intent = Intent().apply {
             putExtra("COR", color)
         }
-        setResult(RESULT_OK, intent)
+       setResult(RESULT_OK, intent)
+
         finish()
     }
 
@@ -88,6 +97,11 @@ class CorForm : AppCompatActivity() {
             this@CorForm.tvRed.text = red.toString()
             this@CorForm.tvGreen.text = green.toString()
             this@CorForm.tvBlue.text = blue.toString()
+
+            this@CorForm.llColor.setBackgroundColor(this@CorForm.createColor())
+
+            this@CorForm.tvColor.setTextColor(this@CorForm.invertColor())
+            this@CorForm.tvColor.text = this@CorForm.hexColor(this@CorForm.createColor())
 
 
         }
