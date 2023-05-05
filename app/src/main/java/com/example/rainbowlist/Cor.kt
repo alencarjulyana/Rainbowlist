@@ -29,7 +29,7 @@ class Cor (private var red: Int, private var green: Int, private var blue: Int, 
                 this.green = green
                 this.blue = blue
                 val color = Color.rgb(red, green, blue)
-                this.nameHex = Integer.toHexString(android.graphics.Color.rgb(red, green, blue))
+                this.nameHex = Integer.toHexString(color)
 
         }
 

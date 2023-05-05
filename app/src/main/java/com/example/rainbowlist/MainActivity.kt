@@ -7,7 +7,9 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.LinearLayout
 import android.widget.SeekBar
+
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         ItemTouchHelper(OnSwipe()).attachToRecyclerView(rvNames)
 
-        var formResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        val formResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             if (it.resultCode == RESULT_OK){
                 val color = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     it.data?.getSerializableExtra("COR", Cor::class.java)
@@ -68,6 +70,8 @@ class MainActivity : AppCompatActivity() {
             val sbRed = view.findViewById<SeekBar>(R.id.sbRed)
             val sbGreen = view.findViewById<SeekBar>(R.id.sbGreen)
             val sbBlue = view.findViewById<SeekBar>(R.id.sbBlue)
+            val llColor = view.findViewById<LinearLayout>(R.id.llColor)
+
 
 
             val colorSeekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
@@ -76,6 +80,7 @@ class MainActivity : AppCompatActivity() {
                     val greenValue = sbGreen.progress
                     val blueValue = sbBlue.progress
                     val color = Color.rgb(redValue, greenValue, blueValue)
+                    llColor.setBackgroundColor(color)
 
                 }
 
